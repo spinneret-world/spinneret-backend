@@ -49,11 +49,12 @@ class Post extends Model {
         relation: Model.BelongsToOneRelation,
         modelClass: User,
         join: {
-          from: 'posts.author_id'
-          to: 'users.id',
+          from: 'posts.author_id',
+          to: 'users.id'
         }
       },
     };
   }
 }
 
+module.exports = Post;

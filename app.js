@@ -3,15 +3,27 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
+// Objection/Knex
+const knex = require('./db/knex.js');
+const { Model } = require('objection');
+Model.knex(knex);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+// CORS
+const corsOptions = {
+  origin: '*'
+};
+app.use(cors(corsOptions));
 
 app.use(logger('dev'));
 app.use(express.json());
