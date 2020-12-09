@@ -1,19 +1,23 @@
+const Password = require('objection-password')();
 const { Model } = require('objection');
 
-class User extends Model {
+class User extends Password(Model) {
   static get tableName() {
     return 'users';
   }
 
-  $beforeInsert() {
-    const date = new Date().toISOString()
+  async $beforeInsert() {
+    await super.$beforeInsert();
 
-    this.createdAt = date
-    this.updatedAt = date
+    const date = new Date().toISOString();
+    this.created_at = date
+    this.updated_at = date
   }
 
-  $beforeUpdate() {
-    this.updatedAt = new Date().toISOString()
+  async $beforeUpdate() {
+    await super.$beforeUpdate();
+
+    this.updated_at = new Date().toISOString();
   }
 
   $parseJson(json, opt) {
@@ -58,3 +62,4 @@ class User extends Model {
   }
 }
 
+module.exports = User;

@@ -10,6 +10,9 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+// Auth
+require('./auth/auth');
+
 // Objection/Knex
 const knex = require('./db/knex.js');
 const { Model } = require('objection');
@@ -47,7 +50,8 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+//  res.render('error');
+  console.log(err);
 });
 
 module.exports = app;
