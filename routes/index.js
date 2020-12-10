@@ -3,6 +3,7 @@ var router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 
+const UserController = require('../controllers/UserController');
 const PostController = require('../controllers/PostController');
 
 /* GET home page. */
@@ -55,6 +56,10 @@ router.post(
     )(req, res, next);
   }
 );
+
+// Users
+router.get('/users', UserController.list);
+router.get('/users/:id', UserController.get);
 
 // Posts
 router.get('/posts', PostController.list);
