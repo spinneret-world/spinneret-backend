@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 
 const UserController = require('../controllers/UserController');
 const PostController = require('../controllers/PostController');
+const ShowController = require('../controllers/ShowController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -64,5 +65,9 @@ router.get('/users/:id', UserController.get);
 // Posts
 router.get('/posts', PostController.list);
 router.get('/posts/:id', PostController.get);
+
+// shows
+router.get('/shows', ShowController.list);
+router.get('/shows/:id', ShowController.get);
 
 module.exports = router;
