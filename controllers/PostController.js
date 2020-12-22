@@ -14,11 +14,11 @@ const PostController = {
 
   async get (req, res, next) {
     try {
-      const posts = await Post
+      const post = await Post
         .query()
         .findById(req.params.id)
         .catch(error => next(error));
-      res.status(200).json({ posts: posts });
+      res.status(200).json({ post: post});
     } catch (error) {
       res.status(500).json({ error: "Error fetching post" });
     }
@@ -26,11 +26,12 @@ const PostController = {
 
   async insert (req, res, next) {
     try {
-      const posts = await Post
+      const post = await Post
         .query()
-        .insert(req.body.post)
+        .insert(req.body)
+        .returning('*')
         .catch(error => next(error));
-      res.status(200).json({ posts: posts });
+      res.status(200).json({ post: post });
     } catch (error) {
       res.status(500).json({ error: "Error inserting post" });
     }

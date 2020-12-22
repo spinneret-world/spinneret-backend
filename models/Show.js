@@ -1,8 +1,8 @@
 const { Model } = require('objection');
 
-class User extends Model {
+class Show extends Model {
   static get tableName() {
-    return 'users';
+    return 'shows';
   }
 
   $beforeInsert() {
@@ -43,3 +43,4 @@ class User extends Model {
   }
 }
 
+module.exports = Show;

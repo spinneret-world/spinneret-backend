@@ -8,6 +8,7 @@ const ShowController = {
         .catch(error => next(error));
       res.status(200).json({ shows: shows });
     } catch (error) {
+      console.log(error);
       res.status(500).json({ error: "Error listing shows" });
     }
   },
