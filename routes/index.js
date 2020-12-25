@@ -66,6 +66,7 @@ router.get('/users/:id', UserController.get);
 router.get('/posts', PostController.list);
 router.get('/posts/:id', PostController.get);
 router.post('/posts', PostController.insert);
+router.patch('/posts/:id', PostController.patch);
 
 // shows
 router.get('/shows', ShowController.list);

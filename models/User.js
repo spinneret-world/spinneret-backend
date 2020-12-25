@@ -6,6 +6,12 @@ class User extends Password(Model) {
     return 'users';
   }
 
+  static modifiers = {
+    defaultSelects(query) {
+       query.select('id', 'username','email','created_at','updated_at');
+    },
+  }
+
   async $beforeInsert() {
     await super.$beforeInsert();
 

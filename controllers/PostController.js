@@ -5,9 +5,11 @@ const PostController = {
     try {
       const posts = await Post
         .query()
+        .eager('[users(defaultSelects)]')
         .catch(error => next(error));
       res.status(200).json({ posts: posts });
     } catch (error) {
+      console.log(error);
       res.status(500).json({ error: "Error listing posts" });
     }
   },
@@ -39,12 +41,13 @@ const PostController = {
 
   async patch (req, res, next) {
     try {
-      const posts = await Post
+      const post = await Post
         .query()
-        .patch(req.body.post)
+        .patch(req.body)
         .findById(req.params.id)
+        .returning('*')
         .catch(error => next(error));
-      res.status(200).json({ posts: posts });
+      res.status(200).json({ post: post });
     } catch (error) {
       res.status(500).json({ error: "Error patching post" });
     }
