@@ -8,12 +8,12 @@ class Show extends Model {
   $beforeInsert() {
     const date = new Date().toISOString()
 
-    this.createdAt = date
-    this.updatedAt = date
+    this.created_at = date
+    this.updated_at = date
   }
 
   $beforeUpdate() {
-    this.updatedAt = new Date().toISOString()
+    this.updated_at = new Date().toISOString()
   }
 
   $parseJson(json, opt) {

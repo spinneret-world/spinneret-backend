@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const UserController = require('../controllers/UserController');
 const PostController = require('../controllers/PostController');
 const ShowController = require('../controllers/ShowController');
+const ProductController = require('../controllers/ProductController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -71,5 +72,13 @@ router.patch('/posts/:id', PostController.patch);
 // shows
 router.get('/shows', ShowController.list);
 router.get('/shows/:id', ShowController.get);
+router.post('/shows', ShowController.insert);
+router.patch('/shows/:id', ShowController.patch);
+
+// Products
+router.get('/products', ProductController.list);
+router.get('/products/:id', ProductController.get);
+router.post('/products', ProductController.insert);
+router.patch('/products/:id', ProductController.patch);
 
 module.exports = router;

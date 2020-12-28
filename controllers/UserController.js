@@ -5,6 +5,7 @@ const UserController = {
     try {
       const users = await User
         .query()
+        .modify('defaultSelects')
         .catch(error => next(error));
       res.status(200).json({ users: users });
     } catch (error) {

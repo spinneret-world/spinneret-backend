@@ -1,19 +1,19 @@
 const { Model } = require('objection');
 
-class User extends Model {
+class Product extends Model {
   static get tableName() {
-    return 'users';
+    return 'products';
   }
 
   $beforeInsert() {
     const date = new Date().toISOString()
 
-    this.createdAt = date
-    this.updatedAt = date
+    this.created_at = date
+    this.updated_at = date
   }
 
   $beforeUpdate() {
-    this.updatedAt = new Date().toISOString()
+    this.updated_at = new Date().toISOString()
   }
 
   $parseJson(json, opt) {
@@ -43,3 +43,5 @@ class User extends Model {
     };
   }
 }
+
+module.exports = Product;
