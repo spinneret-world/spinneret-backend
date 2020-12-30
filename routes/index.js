@@ -7,6 +7,7 @@ const UserController = require('../controllers/UserController');
 const PostController = require('../controllers/PostController');
 const ShowController = require('../controllers/ShowController');
 const ProductController = require('../controllers/ProductController');
+const OrderController = require('../controllers/OrderController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -80,5 +81,11 @@ router.get('/products', ProductController.list);
 router.get('/products/:id', ProductController.get);
 router.post('/products', ProductController.insert);
 router.patch('/products/:id', ProductController.patch);
+
+// Orders
+router.get('/orders', OrderController.list);
+router.get('/orders/:id', OrderController.get);
+router.post('/orders', OrderController.insert);
+router.patch('/orders/:id', OrderController.patch);
 
 module.exports = router;
