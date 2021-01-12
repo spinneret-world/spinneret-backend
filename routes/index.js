@@ -8,6 +8,7 @@ const PostController = require('../controllers/PostController');
 const ShowController = require('../controllers/ShowController');
 const ProductController = require('../controllers/ProductController');
 const OrderController = require('../controllers/OrderController');
+const SettingsController = require('../controllers/SettingsController');
 
 // Auth
 router.post(
@@ -72,7 +73,9 @@ router.get('/products', ProductController.list);
 router.get('/products/:id', ProductController.get);
 
 // Orders
-router.get('/orders', OrderController.list);
-router.get('/orders/:id', OrderController.get);
+router.post('/orders', OrderController.insert);
+
+// Settings
+router.get('/settings', SettingsController.get);
 
 module.exports = router;
