@@ -33,13 +33,13 @@ jobs:
 
     steps:
     - name: SSH and deploy node app
-      uses: appleboy/ssh-action@master
+      uses: fifsky/ssh-action@master 
       with:
         host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
+        user: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
-        script: |
+        command: |
           cd ~/spinneret-backend
           git pull origin master
           npm install 
