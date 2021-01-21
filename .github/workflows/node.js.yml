@@ -42,6 +42,7 @@ jobs:
         command: |
           cd ~/spinneret-backend
           git pull origin master
-          echo (whoami)
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
           npm install 
           pm2 restart spinneret-backend
