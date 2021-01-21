@@ -42,6 +42,6 @@ jobs:
         command: |
           cd ~/spinneret-backend
           git pull origin master
-          whoami
+          echo (whoami)
           npm install 
           pm2 restart spinneret-backend
