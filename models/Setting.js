@@ -5,10 +5,12 @@ class Setting extends Model {
     return 'settings';
   }
 
-  static modifiers = {
-    defaultSelects(query) {
-       query.select('experience_mode');
-    },
+  static get modifiers() {
+    return {
+      defaultSelects(query) {
+         query.select('experience_mode');
+      }
+    }
   }
 
   $beforeInsert() {

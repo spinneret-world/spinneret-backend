@@ -39,6 +39,7 @@ class Order extends Model {
         order: { type: 'string', minLength: 1 },
         created_at: { type: 'string', minLength: 1, maxLength: 255 },
         updated_at: { type: 'string', minLength: 1, maxLength: 255 },
+        is_shipped: { type: 'boolean' },
       }
     };
   }
